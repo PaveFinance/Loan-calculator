@@ -149,7 +149,7 @@ export default function LoanCalculator() {
       {step === 1 && (
         <>
             <h2 className="text-4xl font-bold text-center text-blue-600">Pave Loan Calculator</h2>
-          <h2 className="text-lg font-bold text-center text-blue-900 underline">Please Input Your Monthly Salary</h2>
+          <h2 className="text-xl font-bold text-center text-green-700">Please Input Your Monthly Salary</h2>
       
           <input
             id="salary"
@@ -162,19 +162,22 @@ export default function LoanCalculator() {
           {errors.salary && <p className="text-red-500">{errors.salary}</p>}
           <button
             onClick={handleSalaryInput}
-            className="w-full bg-blue-500 text-white p-3 rounded hover:bg-blue-700"
+            className="w-full bg-blue-700 text-white p-3 rounded hover:bg-blue-600"
           >
             Next
           </button>
         </>
       )}
 
-      {/* Step 2: Rent and Loan Details */}
+      {/* Step 2: Pave Loan Calculator */}
       {step === 2 && (
         <>
-        <h2 className="text-2xl font-bold text-center text-blue-600">Pave Loan Calculator</h2>
-        <h2 className="text-lg font-bold text-center text-blue-900 underline">Maximum Amount You Can Borrow: GHS {maxBorrow.toFixed(2)}</h2>
-          <label htmlFor="rent" className="block text-sm font-medium text-gray-700">Monthly Rent</label>
+        <h2 className="text-3xl font-bold text-center text-blue-600">Pave Loan Calculator</h2>
+      <h2 className="text-xl font-bold text-center">
+  <span className="text-black">Maximum Amount You Can Borrow : </span>
+  <span className="text-green-700">GHS {maxBorrow.toFixed(2)}</span>
+</h2>
+          <label htmlFor="rent" className="block text-lg font-bold text-black text-center">Monthly Rent</label>
           <input
             id="rent"
             type="number"
@@ -188,7 +191,7 @@ export default function LoanCalculator() {
             <p className="text-red-500">{loanDetails.error}</p>
           ) : (
             <>
-              <label htmlFor="upfront" className="block text-sm font-medium text-gray-700">Upfront Payment</label>
+              <label htmlFor="upfront" className="block text-lg font-bold text-black text-center">Upfront Payment</label>
               <select
                 id="upfront"
                 className="w-full p-3 border rounded"
@@ -200,7 +203,7 @@ export default function LoanCalculator() {
                 ))}
               </select>
 
-              <label htmlFor="paymentSchedule" className="block text-sm font-medium text-gray-700">Payment Schedule</label>
+              <label htmlFor="paymentSchedule" className="block text-lg font-bold text-black text-center">Payment Schedule</label>
               <select
                 id="paymentSchedule"
                 className="w-full p-3 border rounded"
@@ -215,7 +218,7 @@ export default function LoanCalculator() {
 
               <button
                 onClick={calculateLoan}
-                className="w-full bg-blue-500 text-white p-3 rounded hover:bg-blue-700 mt-4"
+                className="w-full bg-green-700 text-white p-3 rounded hover:bg-green-600 mt-4"
               >
                 Calculate Loan
               </button>
@@ -238,7 +241,7 @@ export default function LoanCalculator() {
 
           <button
             onClick={() => setStep(3)}
-            className="w-full bg-blue-500 text-white p-3 rounded mt-4"
+            className="w-full bg-blue-700 text-white p-3 rounded hover:bg-blue-600 mt-4"
           >
             Proceed to Application
           </button>
@@ -353,54 +356,55 @@ export default function LoanCalculator() {
             
             
 
-          {/* Consent Section */}
-          <div className="mt-8">
-            <p className="mb-4">
-              <input
-                type="checkbox"
-                name="contactEmployer"
-                checked={isConsentChecked.contactEmployer}
-                onChange={handleConsentChange}
-                className="mr-3"
-              />
-              Do you consent to Pave reaching out to your Employer to provide an undertaking to guarantee your facility?
-            </p>
-            <p className="mb-4">
-              <input
-                type="checkbox"
-                name="salaryDeduction"
-                checked={isConsentChecked.salaryDeduction}
-                onChange={handleConsentChange}
-                className="mr-3"
-              />
-              Do you consent to an amount of GHS {loanDetails?.repaymentAmount?.toFixed(2)} being deducted from your salary monthly?
-            </p>
-            <p className="mb-4">
-              <input
-                type="checkbox"
-                name="proceedApplication"
-                checked={isConsentChecked.proceedApplication}
-                onChange={handleConsentChange}
-                className="mr-3"
-              />
-              By checking this box and writing your name above, you consent with PAVE proceeding with your Application.
-            </p>
-            <p className="mb-4">
-              <input
-                type="checkbox"
-                name="feesConsent"
-                checked={isConsentChecked.feesConsent}
-                onChange={handleConsentChange}
-                className="mr-3"
-              />
-              By checking this box, you consent to paying any applicable fees to proceed with your Application.
-            </p>
-          </div>
+ {/* Consent Section */}
+<div className="mt-8">
+  <p className="mb-4">
+    <input
+      type="checkbox"
+      name="contactEmployer"
+      checked={isConsentChecked.contactEmployer}
+      onChange={handleConsentChange}
+      className="mr-3"
+    />
+    Do you consent to Pave reaching out to your Employer to provide an undertaking to guarantee your facility?
+  </p>
+  <p className="mb-4">
+    <input
+      type="checkbox"
+      name="salaryDeduction"
+      checked={isConsentChecked.salaryDeduction}
+      onChange={handleConsentChange}
+      className="mr-3"
+    />
+    Do you consent to an amount of <span className="font-bold text-green-700">GHS {loanDetails?.repaymentAmount?.toFixed(2)}</span> to be deducted from your monthly salary?
+  </p>
+  <p className="mb-4">
+    <input
+      type="checkbox"
+      name="proceedApplication"
+      checked={isConsentChecked.proceedApplication}
+      onChange={handleConsentChange}
+      className="mr-3"
+    />
+    By checking this box and writing your name above, you consent with PAVE proceeding with your Application.
+  </p>
+  <p className="mb-4">
+    <input
+      type="checkbox"
+      name="feesConsent"
+      checked={isConsentChecked.feesConsent}
+      onChange={handleConsentChange}
+      className="mr-3"
+    />
+    By checking this box, you consent to paying any applicable fees to proceed with your Application.
+  </p>
+</div>
+
 
           {/* Submit Button */}
           <button
           onClick={() => setStep(4)} // Move to rental application form
-            className="w-full bg-blue-500 text-white p-3 rounded mt-4"
+            className="w-full bg-blue-700 text-white p-3 rounded hover:bg-blue-600"
             disabled={!Object.values(isConsentChecked).every(Boolean)} // Disable button if not all checkboxes are checked
           >
             Submit Loan Application
@@ -408,7 +412,7 @@ export default function LoanCalculator() {
           </button>
               <button
             onClick={() => setStep(2)} // Go back to rent and loan details
-            className="w-full bg-gray-500 text-white p-3 rounded hover:bg-gray-700 mt-4"
+            className="w-full bg-red-600 text-white p-3 rounded hover:bg-red-700 mt-4"
           >
             Back
           </button>
@@ -474,14 +478,14 @@ export default function LoanCalculator() {
          {/* Submit Rental Application Button */}
           <button
             onClick={() => setStep(5)} // Move to final submission (Step 5)
-            className={`w-full p-3 rounded mt-4 ${!isFormComplete() ? 'bg-gray-400' : 'bg-green-500'} text-white`}
+            className={`w-full p-3 rounded mt-4 ${!isFormComplete() ? 'bg-gray-500' : 'bg-green-700'} text-white`}
             disabled={!isFormComplete()} // Disable button if form is incomplete
           >
             Submit Rental Application
           </button>
              <button
             onClick={() => setStep(3)} // Go back to loan application form
-            className="w-full bg-gray-500 text-white p-3 rounded hover:bg-gray-700 mt-4"
+            className="w-full bg-red-700 text-white p-3 rounded hover:bg-red-600 mt-4"
           >
             Back
           </button>
@@ -518,13 +522,13 @@ export default function LoanCalculator() {
 
           <button
             onClick={() => setStep(6)} // Proceed to final submission confirmation
-            className="w-full bg-green-500 text-white p-3 rounded mt-4"
+            className="w-full bg-green-700 text-white p-3 rounded hover:bg-green-600"
           >
             Confirm and Submit
           </button>
              <button
             onClick={() => setStep(4)} // Go back to rent application form
-            className="w-full bg-gray-500 text-white p-3 rounded hover:bg-gray-700 mt-4"
+            className="w-full bg-red-700 text-white p-3 rounded hover:bg-red-600 mt-4"
           >
             Back
           </button>
@@ -534,15 +538,17 @@ export default function LoanCalculator() {
       {/* Step 6: Final Submission Confirmation */}
       {step === 6 && (
         <>
-     <h2 className="text-3xl font-bold text-center text-blue-900 underline"> Huraay! Your Submission  is Complete!</h2>
-          <p>We are excited to support you in your rental Journal!  </p> 
-            <p>Keep an eye on your inbox</p> 
-            <p>we will email you within 3 - 7 business days </p> 
-            <p> Got questions?</p>
-           <p>Don't hesistate to contact us at 0207337449  </p>
+     <h2 className="text-3xl font-bold text-center text-green-700 underline"> Huraay! Your Submission is Complete!</h2>
+          <h2 className="text-lg text-center text-blue-700">
+  <p>We are excited to support you in your rental Journal!</p>
+  <p>Keep an eye on your inbox</p>
+  <p>We will email you within 3 - 7 business days</p>
+  <p>Got questions?</p>
+  <p>Don't hesitate to contact us at 0207337449</p>
+</h2>
           <button
             onClick={() => setStep(1)} // Exit
-            className="w-full bg-blue-500 text-white p-3 rounded mt-4"
+            className="w-full bg-red-600 text-white p-3 rounded hover:bg-red-400"
           >
             Exit
           </button>
