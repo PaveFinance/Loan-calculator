@@ -534,7 +534,7 @@ export default function LoanCalculator() {
       {/* Step 6: Final Submission Confirmation */}
       {step === 6 && (
         <>
-     <h2 className="text-2xl font-bold text-center text-blue-600"> Huraay! Your Submission  is Complete!</h2>
+     <h2 className="text-3xl font-bold text-center text-blue-600 underline"> Huraay! Your Submission  is Complete!</h2>
           <p>We are excited to support you in your rental Journal!  </p> 
             <p>Keep an eye on your inbox</p> 
             <p>we will email you within 3 - 7 business days </p> 
