@@ -148,9 +148,9 @@ export default function LoanCalculator() {
       {/* Step 1: Salary Input */}
       {step === 1 && (
         <>
-            <h2 className="text-2xl font-bold text-center text-blue-600">Pave Loan Calculator</h2>
-             <p> Please Input Your Monthly Salary</p>
-
+            <h2 className="text-4xl font-bold text-center text-blue-600">Pave Loan Calculator</h2>
+          <h2 className="text-lg font-bold text-center text-blue-900 underline">Please Input Your Monthly Salary</h2>
+      
           <input
             id="salary"
             type="number"
@@ -173,7 +173,7 @@ export default function LoanCalculator() {
       {step === 2 && (
         <>
         <h2 className="text-2xl font-bold text-center text-blue-600">Pave Loan Calculator</h2>
-          <p>Maximum Borrowable Amount: GHS {maxBorrow.toFixed(2)}</p>
+        <h2 className="text-lg font-bold text-center text-blue-900 underline">Maximum Amount You Can Borrow: GHS {maxBorrow.toFixed(2)}</h2>
           <label htmlFor="rent" className="block text-sm font-medium text-gray-700">Monthly Rent</label>
           <input
             id="rent"
@@ -248,7 +248,7 @@ export default function LoanCalculator() {
       {/* Step 3: Loan Application Form */}
       {step === 3 && (
         <>
-     <h2 className="text-2xl font-bold text-center text-blue-600">Loan Application Form</h2>
+     <h2 className="text-3xl font-bold text-center text-blue-800 underline">Loan Application Form</h2>
 
           {/* Application Form Fields */} 
           <input
@@ -417,7 +417,7 @@ export default function LoanCalculator() {
           {/* Step 4: Rental Application Form */}
       {step === 4 && (
         <>
-     <h2 className="text-2xl font-bold text-center text-blue-600">Landlord Information </h2>
+     <h2 className="text-3xl font-bold text-center text-blue-800 underline">Landlord Information </h2>
             
           <input
             type="text"
@@ -448,7 +448,7 @@ export default function LoanCalculator() {
             onChange={(e) => setApartmentLocation(e.target.value)}
         />
                  {/* Guarantor Section */}
-     <h2 className="text-2xl font-bold text-center text-blue-600">Guarantor Information</h2>
+     <h2 className="text-3xl font-bold text-center text-blue-800 underline">Guarantor Information</h2>
         <input
             type="text"
             placeholder="Guarantor's Name"
@@ -493,13 +493,13 @@ export default function LoanCalculator() {
       {/* Step 5: Application Summary */}
       {step === 5 && (
         <>
-     <h2 className="text-2xl font-bold text-center text-blue-600">Application Summary</h2>
-            <h3 className="text-lg font-bold decoration-blue-500">Applicant Details</h3>
+     <h2 className="text-3xl font-bold text-center text-blue-500">Application Summary</h2>
+            <h3 className="text-lg font-bold text-center text-blue-900 underline decoration-blue-900">Applicant Details</h3>
           <p><strong>Name:</strong> {name}</p>
           <p><strong>Email:</strong> {email}</p>
           <p><strong>Phone Number:</strong> {phone}</p>
           <p><strong>Salary:</strong> GHS {salary}</p>
-            <h3 className="text-lg font-bold decoration-blue-500 ">Payments Summary</h3>
+            <h3 className="text-lg font-bold text-center text-blue-900 underline decoration-blue-900 ">Payments Summary</h3>
           <p><strong>Payment Schedule:</strong> 
             {paymentSchedule === "monthly" && "12 Repayments"}
             {paymentSchedule === "quarterly" && "4 Repayments"}
@@ -510,7 +510,7 @@ export default function LoanCalculator() {
           <p><strong>Repayment Amount:</strong> GHS {loanDetails?.repaymentAmount?.toFixed(2)}</p>
 
           {/* Rental Application Summary */}
-       <h3 className="text-lg font-bold decoration-blue-500">Landlord Summary</h3>
+    <h3 className="text-lg font-bold text-center text-blue-900 underline decoration-blue-900">Landlord Summary</h3>
           <p><strong>Landlord's Name:</strong> {landlordName}</p>
           <p><strong>Landlord's Phone:</strong> {landlordPhone}</p>
           <p><strong>Landlord's Email:</strong> {landlordEmail}</p>
@@ -551,3 +551,4 @@ export default function LoanCalculator() {
     </div>
   );
 }
+
