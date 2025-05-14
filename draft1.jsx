@@ -243,7 +243,7 @@ export default function LoanCalculator() {
             onClick={() => setStep(3)}
             className="w-full bg-blue-700 text-white p-3 rounded hover:bg-blue-600 mt-4"
           >
-            Proceed to Application
+            Proceed
           </button>
         </>
       )}
